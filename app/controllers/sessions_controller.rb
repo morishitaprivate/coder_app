@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(login_id: params[:session][:login_id].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      flash.now[:success] = 'ログインに成功しました。'
+      flash[:success] = 'ログインに成功しました。'
       redirect_to root_url
     else
       flash.now[:danger] = 'ログインID、またはパスワードが異なります。'
