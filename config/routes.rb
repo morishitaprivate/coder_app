@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users
-  root to: 'sessions#new' # 一時的にルートはここにする。他にないため。
+  root to: 'home#index'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
