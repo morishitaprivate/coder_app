@@ -9,7 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="text-center">
+    <% if flash[:success].present? %>
+      <div style="color: #99E300"><%= flash[:success] %></div>
+    <% end %>
+    <% if flash[:danger].present? %>
+      <div style="color: red"><%= flash[:danger] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

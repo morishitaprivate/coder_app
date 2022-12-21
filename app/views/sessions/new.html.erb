@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag 'sessions', :media => "all" %>
+<h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :login_id, class: "sr-only" %>
+  <%= f.text_field :login_id, class: "session-form-control", placeholder: "ログインID" %>
+  <%= f.label :password, class: "sr-only" %>
+  <%= f.password_field :password, class: "session-form-control", placeholder: "パスワード" %>
+  <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block", style: "margin: auto" %>
+<% end %>
+<%= link_to 'ユーザー登録', new_user_path %>
