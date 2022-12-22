@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        language:
+  enumerize:
+    post:
+      language:
+        Cplus: 'C++'
+        Python: 'Python'
+        Java: 'Java'
+        C: 'C'
+        Ruby: 'Ruby'
+        Csharp: 'C#'
+        Haskell: 'Haskell'
+        Rust: 'Rust'
+        Other: 'その他'
