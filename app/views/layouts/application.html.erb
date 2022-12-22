@@ -25,6 +25,9 @@
               </li>
               <% if logged_in? %>
                 <li class="nav-item">
+                  <%= link_to '新規投稿', root_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
                   <%= link_to 'マイページ', root_path, class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
@@ -56,12 +59,14 @@
         </div>
       </nav>
     </header>
-    <% if flash[:success].present? %>
-      <div style="color: #99E300"><%= flash[:success] %></div>
-    <% end %>
-    <% if flash[:danger].present? %>
-      <div style="color: red"><%= flash[:danger] %></div>
-    <% end %>
-    <%= yield %>
+    <main>
+      <% if flash[:success].present? %>
+        <div style="color: #99E300"><%= flash[:success] %></div>
+      <% end %>
+      <% if flash[:danger].present? %>
+        <div style="color: red"><%= flash[:danger] %></div>
+      <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>
