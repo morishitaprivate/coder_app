@@ -2,16 +2,20 @@ ja:
   activerecord:
     attributes:
       post:
-        language:
+        title: タイトル
+        url: URL
+        language: 使用言語
+        content: コード
+        comment: コメント
   enumerize:
     post:
       language:
-        Cplus: 'C++'
-        Python: 'Python'
-        Java: 'Java'
-        C: 'C'
-        Ruby: 'Ruby'
-        Csharp: 'C#'
-        Haskell: 'Haskell'
-        Rust: 'Rust'
-        Other: 'その他'
+        cplus: C++
+        python: Python
+        java: Java
+        c: C
+        ruby: Ruby
+        csharp: C#
+        haskell: Haskell
+        rust: Rust
+        other: その他

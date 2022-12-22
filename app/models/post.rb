@@ -7,15 +7,15 @@ class Post < ApplicationRecord
   validates :content, presence: true
   
   enumerize :language, in: {
-    Cplus: 0,
-    Python: 1,
-    Java: 2,
-    C: 3,
-    Ruby: 4,
-    Csharp: 5,
-    Haskell: 6,
-    Rust: 7,
-    Other: 99,
+    cplus: 0,
+    python: 1,
+    java: 2,
+    c: 3,
+    ruby: 4,
+    csharp: 5,
+    haskell: 6,
+    rust: 7,
+    other: 99,
   }
   
 end
