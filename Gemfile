@@ -6,6 +6,9 @@ ruby '2.7.6'
 gem 'bootstrap'
 gem 'jquery-rails'
 
+gem 'enumerize'
+gem 'rails-i18n'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use mysql as the database for Active Record
