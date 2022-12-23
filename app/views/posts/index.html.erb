@@ -17,7 +17,7 @@
         <%= post.title %><br>
         <%= post.url %><br>
         <%= post.language.text %><br>
-        <%= link_to 'こちらで確認', posts_path %><br>
+        <%= link_to 'こちらで確認', post_path(post.id) %><br>
         <%= post.comment %>
       </div>
     </div>
