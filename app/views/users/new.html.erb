@@ -9,16 +9,21 @@
       <% end %>
     <% end %>
     <%= f.label :name, class: "sr-only" %>
-    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "名前（必須）" %>
     
     <%= f.label :login_id, class: "sr-only" %>
-    <%= f.text_field :login_id, class: "form-control", placeholder: "ログインID" %>
+    <%= f.text_field :login_id, class: "form-control", placeholder: "ログインID（必須）" %>
     
     <%= f.label :password, class: "sr-only" %>
-    <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %> 
+    <%= f.password_field :password, class: "form-control", placeholder: "パスワード（必須）" %> 
     
     <%= f.label :password_confirmation, class: "sr-only" %>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード確認" %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード確認（必須）" %>
+    
+    <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '年代（任意）' }, { class: 'form-control' } %>
+    
+    <%= f.label :introduction, class: "sr-only" %>
+    <%= f.text_area :introduction, class: "form-control", placeholder: "自己紹介文（任意）", rows: '7' %>
         
     <%= f.submit "登録", class: "btn btn-lg btn-primary btn-block", style: "margin: auto" %>
   <% end %>

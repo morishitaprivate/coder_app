@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: タイトル
+        url: URL
+        language: 使用言語
+        content: コード
+        comment: コメント
+  enumerize:
+    post:
+      language:
+        cplus: C++
+        python: Python
+        java: Java
+        c: C
+        ruby: Ruby
+        csharp: C#
+        haskell: Haskell
+        rust: Rust
+        other: その他
