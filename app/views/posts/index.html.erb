@@ -1,0 +1,25 @@
+<h2>投稿一覧</h2>
+
+<% @posts.each do |post| %>
+  <div class="card" style="margin: 20px auto">
+    <div class="card-header text-start">
+      <%= link_to "#{post.user.name}さん", posts_path %>
+    </div>
+    <div class="card-body d-flex text-start">
+      <div class="col-md-4">
+        <%= "#{Post.human_attribute_name(:title)}：" %><br>
+        <%= "#{Post.human_attribute_name(:url)}：" %><br>
+        <%= "#{Post.human_attribute_name(:language)}：" %><br>
+        <%= "#{Post.human_attribute_name(:content)}：" %><br>
+        <%= "#{Post.human_attribute_name(:comment)}：" %>
+      </div>
+      <div class="col-md-8">
+        <%= post.title %><br>
+        <%= post.url %><br>
+        <%= post.language.text %><br>
+        <%= link_to 'こちらで確認', posts_path %><br>
+        <%= post.comment %>
+      </div>
+    </div>
+  </div>
+<% end %>
