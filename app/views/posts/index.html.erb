@@ -18,7 +18,7 @@
         <%= post.url %><br>
         <%= post.language.text %><br>
         <%= link_to 'こちらで確認', post_path(post.id) %><br>
-        <%= post.comment %>
+        <%= post.comment[0..100] %>
       </div>
     </div>
   </div>
