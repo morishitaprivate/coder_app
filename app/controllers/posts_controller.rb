@@ -33,12 +33,37 @@ class PostsController < ApplicationController
   end
   
   def edit
+    @post = Post.find(params[:id])
+    
+    if current_user != @post.user
+      flash[:danger] = '投稿主のみが変更することができます。'
+      redirect_to post_path(params[:id])
+    end
   end
   
   def update
+    @post = Post.find(params[:id])
+    
+    if @post.update(post_params)
+      flash[:success] = '更新が完了しました。'
+      redirect_to post_path(params[:id])
+    else
+      flash.now[:danger] = '更新に失敗しました。'
+      render 'edit'
+    end
   end
   
   def destroy
+    @post = Post.find(params[:id])
+    
+    if current_user != @post.user
+      flash[:danger] = '投稿主のみが削除できます。'
+      render 'show'
+    else
+      @post.destroy
+      flash[:success] = '削除が完了しました。'
+      redirect_to posts_path
+    end
   end
   
   private

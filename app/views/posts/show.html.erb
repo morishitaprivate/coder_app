@@ -10,7 +10,11 @@
       <%= "#{Post.human_attribute_name(:url)}：" %><br>
       <%= "#{Post.human_attribute_name(:language)}：" %><br>
       <% if @post.comment.present? %>
-        <%= "#{Post.human_attribute_name(:comment)}：" %>
+        <%= "#{Post.human_attribute_name(:comment)}：" %><br>
+      <% end %>
+      <% if current_user == @post.user %>
+        <%= link_to '変更する', edit_post_path(@post.id) %>
+        <%= link_to '削除する', post_path(@post.id), method: :delete, data: { confirm: '削除します。よろしいですか？' } %>
       <% end %>
     </div>
     <div class="col-md-8">
