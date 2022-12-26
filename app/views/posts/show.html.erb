@@ -1,0 +1,37 @@
+<h2>投稿詳細</h2>
+
+<div class="card" style="margin: 20px auto">
+  <div class="card-header text-start">
+    <%= link_to "#{@post.user.name}さん", post_path(@post.id) %>
+  </div>
+  <div class="card-body d-flex text-start">
+    <div class="col-md-4">
+      <%= "#{Post.human_attribute_name(:title)}：" %><br>
+      <%= "#{Post.human_attribute_name(:url)}：" %><br>
+      <%= "#{Post.human_attribute_name(:language)}：" %><br>
+      <% if @post.comment.present? %>
+        <%= "#{Post.human_attribute_name(:comment)}：" %><br>
+      <% end %>
+      <% if current_user == @post.user %>
+        <%= link_to '変更する', edit_post_path(@post.id) %>
+        <%= link_to '削除する', post_path(@post.id), method: :delete, data: { confirm: '削除します。よろしいですか？' } %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <%= @post.title %><br>
+      <%= @post.url %><br>
+      <%= @post.language.text %><br>
+      <% if @post.comment.present? %>
+        <span style="white-space: pre-wrap"><%= @post.comment %></span>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="card" style="margin: 20px auto">
+  <div class="card-header text-start">
+    コード
+  </div>
+  <div class="card-body text-start" style="white-space: pre-wrap">
+    <%= @post.content %>
+  </div>
+</div>
