@@ -22,7 +22,7 @@
       <%= @post.url %><br>
       <%= @post.language.text %><br>
       <% if @post.comment.present? %>
-        <%= @post.comment %>
+        <span style="white-space: pre-wrap"><%= @post.comment %></span>
       <% end %>
     </div>
   </div>
