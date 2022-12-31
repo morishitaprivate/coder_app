@@ -35,3 +35,36 @@
     <%= @post.content %>
   </div>
 </div>
+
+<h2>コメント</h2>
+<% @post_comments.each do |post_comment| %>
+  <div class="card" style="margin: 20px auto">
+    <div class="card-header justify-content-between d-flex">
+      <%= link_to "#{post_comment.user.name}さん", post_path(@post.id) %>
+      <div><%= post_comment.created_at %></div>
+    </div>
+    <div class="card-body d-flex justify-content-between">
+      <span class="text-start" style="white-space: pre-wrap"><%= post_comment.content %></span><br>
+      <% if current_user == post_comment.user %>
+        <%= link_to '削除する', post_post_comment_path(@post, post_comment), method: :delete, data: { confirm: '削除します。よろしいですか？' } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if logged_in? %>
+  <%= form_for @post_comment, url: post_post_comments_path(@post.id) do |f| %>
+    <% if @post_comment.errors.any? %>
+      <% @post_comment.errors.full_messages.each do |msg| %>
+        <div style="color: red"><%= msg %></div>
+      <% end %>
+    <% end %>
+    
+    <%= f.label :content, class: "sr-only" %>
+    <%= f.text_area :content, class: "form-control", placeholder: "コメントする", rows: 3, style: 'margin: 20px auto' %>
+
+    <%= f.submit "コメントする", class: "btn btn-primary", data: { confirm: "この内容でコメントします。よろしいですか？" } %>
+  <% end %>
+<% else %>
+  <%= link_to 'ログイン', login_path %>するとコメントできるようになります。
+<% end %>
