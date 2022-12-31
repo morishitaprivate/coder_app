@@ -1,0 +1,25 @@
+<h2 style="text-align: left">新規投稿</h2>
+
+<%= form_for @post, url: posts_path do |f| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <div style="color: red"><%= msg %></div>
+    <% end %>
+  <% end %>
+  
+  <%= f.label :title, class: "sr-only" %>
+  <%= f.text_field :title, class: "form-control", placeholder: Post.human_attribute_name(:title), style: 'margin: 20px auto' %>
+  
+  <%= f.label :url, class: "sr-only" %>
+  <%= f.text_field :url, class: "form-control", placeholder: "#{Post.human_attribute_name(:url)}（任意）", style: 'margin: 20px auto' %>
+  
+  <%= f.select :language, Post.language.options , { include_blank: Post.human_attribute_name(:language) }, { class: 'form-control' } %>
+  
+  <%= f.label :content, class: "sr-only" %>
+  <%= f.text_area :content, class: "form-control", placeholder: "#{Post.human_attribute_name(:content)}", rows: 20, style: 'margin: 20px auto' %>
+  
+  <%= f.label :comment, class: "sr-only" %>
+  <%= f.text_area :comment, class: "form-control", placeholder: "#{Post.human_attribute_name(:conmment)}（任意）", rows: 10, style: 'margin: 20px auto' %>
+
+  <%= f.submit "投稿する", class: "btn btn-primary", data: { confirm: "この内容で投稿します。よろしいですか？" } %>
+<% end %>
