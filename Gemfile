@@ -8,6 +8,8 @@ gem 'jquery-rails'
 
 gem 'enumerize'
 gem 'rails-i18n'
+gem 'chartkick'
+gem 'chartable'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
