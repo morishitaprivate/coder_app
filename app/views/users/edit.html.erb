@@ -1,2 +1,24 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= stylesheet_link_tag 'users', :media => "all" %>
+<h2>ユーザー編集</h2>
+
+<div class="row">
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <div style="color: red"><%= msg %></div>
+      <% end %>
+    <% end %>
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, class: "user-form-control", placeholder: "名前（必須）" %>
+    
+    <%= f.label :login_id, class: "sr-only" %>
+    <%= f.text_field :login_id, class: "user-form-control", placeholder: "ログインID（必須）" %>
+    
+    <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '年代（任意）' }, { class: 'user-form-control' } %>
+    
+    <%= f.label :introduction, class: "sr-only" %>
+    <%= f.text_area :introduction, class: "user-area-form-control", placeholder: "自己紹介文（任意）", rows: '7' %>
+        
+    <%= f.submit "変更", class: "btn btn-lg btn-primary btn-block", style: "margin: auto" %>
+  <% end %>
+</div>

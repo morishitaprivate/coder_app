@@ -2,8 +2,9 @@
 <div class="justify-content-between d-flex pt-5">
   <div class="col-md-8">
     <div class="card">
-      <div class="card-header text-start">
+      <div class="card-header text-start d-flex justify-content-between">
         ユーザー情報
+        <%= link_to '編集', edit_user_path(@user), class: 'text-end' %>
       </div>
       <div class="card-body d-flex text-start">
         <div class="col-md-3">
@@ -15,7 +16,7 @@
         <div class="col-md-9">
           <%= @user.name %><br><br>
           <%= @user.login_id %><br><br>
-          <%= @user.age %><br><br>
+          <%= @user.age %>代<br><br>
           <%= @user.introduction %><br>
         </div>
       </div>
