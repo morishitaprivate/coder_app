@@ -2,7 +2,11 @@
 
 <div class="card" style="margin: 20px auto">
   <div class="card-header text-start">
-    <%= link_to "#{@post.user.name}さん", post_path(@post.id) %>
+      <% if current_user == @post.user %>
+        <%= link_to "#{@post.user.name}さん", mypage_index_path %>
+      <% else %>
+        <%= link_to "#{@post.user.name}さん", user_path(@post.user) %>
+      <% end %>
   </div>
   <div class="card-body d-flex text-start">
     <div class="col-md-4">

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # @questions = Question.where(user_id: @user.id)
+    @posts = Post.where(user_id: @user.id)
   end
   
   def new
@@ -23,17 +23,24 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    if current_user != @user
+      flash[:danger] = '本人のみ変更することができます。'
+      redirect_to user_path(@user)
+    end
   end
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      flash[:success] = '更新が完了しました'
+    if current_user != @user
+      flash[:danger] = '本人のみ変更することができます。'
       redirect_to root_path
-      # redirect_to mypage_index_path
     else
-      flash[:danger] = '更新に失敗しました'
-      render 'edit'
+      if @user.update(user_params)
+        flash[:success] = '更新が完了しました'
+      else
+        flash[:danger] = '更新に失敗しました'
+      end
+      redirect_to mypage_index_path
     end
   end
   
