@@ -16,8 +16,18 @@
         <div class="col-md-9">
           <%= @user.name %><br><br>
           <%= @user.login_id %><br><br>
-          <%= @user.age %>代<br><br>
-          <%= @user.introduction %><br>
+          <% if @user.age.blank? %>
+            未登録
+          <% else %>
+            <%= @user.age %>代
+          <% end %>
+          <br><br>
+          <% if @user.introduction.blank? %>
+            未登録
+          <% else %>
+            <%= @user.introduction %>
+          <% end %>
+          <br>
         </div>
       </div>
     </div>

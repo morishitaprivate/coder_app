@@ -1,6 +1,12 @@
 class MypageController < ApplicationController
   def index
-    @user = current_user
-    @posts = Post.where(user_id: current_user.id)
+    
+    unless logged_in?
+      flash[:danger] = 'マイページはログイン後にみることができます。'
+      redirect_to root_path
+    else
+      @user = current_user
+      @posts = Post.where(user_id: current_user.id)
+    end
   end
 end

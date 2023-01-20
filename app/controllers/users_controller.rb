@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user != @user
       flash[:danger] = '本人のみ変更することができます。'
+      redirect_to root_path
     else
       if @user.update(user_params)
         flash[:success] = '更新が完了しました'
@@ -41,8 +42,6 @@ class UsersController < ApplicationController
       end
       redirect_to mypage_index_path
     end
-    
-    redirect_to root_path
   end
   
   def destroy
